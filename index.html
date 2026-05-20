@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Word</title>
     <style>
-        /* Reset */
+        /* Reset - zero margin/padding across all elements */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Full viewport foundation — no horizontal scroll at any width */
         html, body {
             width: 100%;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
+        /* Centered layout with purple gradient background */
         body {
             display: flex;
             align-items: center;
@@ -29,33 +31,44 @@
             padding: 1rem;
         }
 
+        /* Heading — large on desktop, scales down on mobile */
         h1 {
             font-weight: 700;
             letter-spacing: 0.05em;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            /* Desktop: 3-4rem */
-            font-size: 4rem;
+            font-size: 4rem;            /* within 3-4rem range for desktop */
             line-height: 1.2;
             word-break: break-word;
+            max-width: 100%;
         }
 
-        /* Mobile: 320px - 768px */
+        /* --- RESPONSIVE BREAKPOINTS --- */
+
+        /* Tablet and below — ≥768px is desktop, <768px is mobile */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.5rem;        /* within 1.8-2.5rem mobile range */
                 letter-spacing: 0.03em;
+            }
+            body {
+                padding: 1.5rem 1rem;
             }
         }
 
+        /* Small phones */
         @media (max-width: 480px) {
             h1 {
                 font-size: 2rem;
             }
+            body {
+                padding: 1rem 0.75rem;
+            }
         }
 
+        /* Very narrow screens (down to 320px) */
         @media (max-width: 360px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.8rem;        /* minimum of 1.8-2.5rem range */
             }
         }
     </style>
